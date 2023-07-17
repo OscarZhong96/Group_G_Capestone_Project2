@@ -14,3 +14,63 @@ print(Macaroniandcheese.ingredients)
 print(Macaroniandcheese.instructions)
 print(Macaroniandcheese.cooking_time)
 print(Macaroniandcheese.dietary_info)
+
+recipes = {}  # Dictionary to store recipes
+
+def add_recipe():
+    name = input("Enter recipe name: ")
+    cuisine = input("Enter cuisine: ")
+    ingredients = input("Enter ingredients (separated by commas): ").split(",")
+    instructions = input("Enter cooking instructions: ")
+
+    recipe = {
+        "Cuisine": cuisine,
+        "Ingredients": ingredients,
+        "Instructions": instructions
+    }
+
+    recipes[name] = recipe
+    print("Recipe added successfully!")
+
+def view_recipe(name):
+    if name in recipes:
+        recipe = recipes[name]
+        print(f"Name: {name}")
+        print(f"Cuisine: {recipe['Cuisine']}")
+        print(f"Ingredients: {', '.join(recipe['Ingredients'])}")
+        print(f"Instructions: {recipe['Instructions']}")
+    else:
+        print("Recipe not found!")
+
+def delete_recipe(name):
+    if name in recipes:
+        del recipes[name]
+        print("Recipe deleted successfully!")
+    else:
+        print("Recipe not found!")
+
+def main():
+    while True:
+        print("\n-- Recipe Management System --")
+        print("1. Add Recipe")
+        print("2. View Recipe")
+        print("3. Delete Recipe")
+        print("4. Exit")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            add_recipe()
+        elif choice == "2":
+            name = input("Enter recipe name: ")
+            view_recipe(name)
+        elif choice == "3":
+            name = input("Enter recipe name: ")
+            delete_recipe(name)
+        elif choice == "4":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
