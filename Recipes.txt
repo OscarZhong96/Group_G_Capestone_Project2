@@ -1,1 +1,5 @@
-
+title
+ingredients
+instructions
+cooking time
+dietary information.
