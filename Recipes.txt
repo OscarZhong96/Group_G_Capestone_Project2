@@ -79,3 +79,41 @@ fibre: 0g
 protein:38g
 salt: 1.9g
 
+
+
+
+
+
+
+
+
+class RecipeManager:
+    def __init__(self):
+        self.recipe_list = []
+
+    def add_recipe(self, recipe):
+        self.recipe_list.append(recipe)
+
+    def update_recipe(self, recipe, new_title=None, new_ingredients=None, new_instructions=None,
+                      new_cooking_time=None, new_dietary_info=None):
+        if new_title:
+            recipe.set_title(new_title)
+        if new_ingredients:
+            recipe.set_ingredients(new_ingredients)
+        if new_instructions:
+            recipe.set_instructions(new_instructions)
+        if new_cooking_time:
+            recipe.set_cooking_time(new_cooking_time)
+        if new_dietary_info:
+            recipe.set_dietary_info(new_dietary_info)
+
+    def delete_recipe(self, recipe):
+        self.recipe_list.remove(recipe)
+
+    def display_recipe_info(self, recipe):
+        print("Title: ", recipe.get_title())
+        print("Ingredients: ", recipe.get_ingredients())
+        print("Instructions: ", recipe.get_instructions())
+        print("Cooking Time: ", recipe.get_cooking_time())
+        print("Dietary Information: ", recipe.get_dietary_info())
+
