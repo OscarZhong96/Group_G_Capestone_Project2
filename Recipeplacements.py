@@ -15,10 +15,10 @@ def add_recipes():
 def view_recipes():
     title.set(datas[int(choice_listbox.curselection()[0])][0])
     ingredients.set(datas[int(choice_listbox.curselection()[0])][1])
-    cookingtime_entry.set(datas[int(choice_listbox.curselection()[0])][1])
-    dietaryinfo_entry.set(datas[int(choice_listbox.curselection()[0])][1])
+    cookingtime.set(datas[int(choice_listbox.curselection()[0])][2])
+    dietaryinfo.set(datas[int(choice_listbox.curselection()[0])][3])
     instructions_entry.delete(1.0,"end")
-    instructions_entry.insert(1.0, datas[int(choice_listbox.curselection()[0])][2])
+    instructions_entry.insert(1.0, datas[int(choice_listbox.curselection()[0])][4])
   
 # Delete Recipe
 def delete_recipes():
@@ -33,11 +33,16 @@ def reset():
 # Update recipe
 def update_recipe():
     choice_listbox.delete(0,END)
-    for n,p,a in datas:
+    for n,p,a,g,e, in datas:
         choice_listbox.insert(END, n)
 
 title=StringVar()
+cookingtime=StringVar()
 ingredients=StringVar()
+dietaryinfo=StringVar()
+ingredients=StringVar()
+
+
 
 #naming the window recipe manager
 window.title("Recipe Manager")
@@ -67,8 +72,8 @@ instructions_label.grid(row=4,column=0)
 
 
 title_entry=tkinter.Entry(recipes_frame,textvariable = title)
-cookingtime_entry=tkinter.Entry(recipes_frame)
-dietaryinfo_entry=tkinter.Entry(recipes_frame)
+cookingtime_entry=tkinter.Entry(recipes_frame,textvariable=cookingtime)
+dietaryinfo_entry=tkinter.Entry(recipes_frame,textvariable=dietaryinfo)
 ingredients_entry=tkinter.Entry(recipes_frame,textvariable = ingredients)
 instructions_entry=tkinter.Text(recipes_frame,width=20,height=10)
 
@@ -111,15 +116,6 @@ addbutton.grid(row=2, column=4)
 deletebutton.grid(row=3, column=4)
 editbutton.grid(row=4, column=4)
 window.mainloop()
-
-
-
-
-
-
-
-
-
 
 
 
