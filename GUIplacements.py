@@ -1,3 +1,5 @@
+# practice using different placement methods in tkinter such as grid, pack and place
+
 import tkinter
 from tkinter import *
 from tkinter import ttk
